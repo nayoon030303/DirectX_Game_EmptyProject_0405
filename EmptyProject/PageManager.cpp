@@ -1,6 +1,7 @@
 #include "DXUT.h"
 #include "PageManager.h"
 #include "TitlePage.h"
+#include "FirstGamePage.h"
 #include "Page.h"
 
 
@@ -20,6 +21,16 @@ void PageManager::MakeTitlePage()
 		delete currentPage;
 	}
 	TitlePage* newPage = new TitlePage();
+	currentPage = newPage;
+}
+
+void PageManager::MakeFirstGamePage()
+{
+	if (currentPage != nullptr)
+	{
+		delete currentPage;
+	}
+	FirstGamePage* newPage = new FirstGamePage();
 	currentPage = newPage;
 }
 

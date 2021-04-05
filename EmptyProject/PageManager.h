@@ -14,6 +14,7 @@ public:
 	void deleteData();
 
 	void MakeTitlePage();
+	void MakeFirstGamePage();
 
 	Page* currentPage;
 };

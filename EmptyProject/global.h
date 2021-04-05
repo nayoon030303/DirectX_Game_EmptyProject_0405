@@ -1,7 +1,7 @@
 #include "DXUT.h"
 #include "PageManager.h"
 
-
+/*size && pos*/
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
 #define BACKGROUND_WIDTH 1024
@@ -16,6 +16,11 @@
 #define MAP_PROPERTY_VISITING 300
 #define MAP_PROPERTY_TEMP 400
 #define MAP_PROPERTY_EMPTY 500
+
+/*Map*/
+int map[BACKGROUND_WIDTH * BACKGROUND_HEIGHT];
+int binaryMap[BACKGROUND_WIDTH * BACKGROUND_HEIGHT];
+int mapData[BACKGROUND_WIDTH * BACKGROUND_HEIGHT];
 
 
 /*Manager*/
