@@ -1,0 +1,22 @@
+#include "DXUT.h"
+#include "PageManager.h"
+
+
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
+#define BACKGROUND_WIDTH 1024
+#define BACKGROUND_HEIGHT 720
+#define START_X WINDOW_WIDTH/2 - BACKGROUND_WIDTH/2
+#define START_Y 200
+
+
+/*MAP_PROPERTY*/
+#define MAP_PROPERTY_EDGE 100
+#define MAP_PROPERTY_VISIT 200
+#define MAP_PROPERTY_VISITING 300
+#define MAP_PROPERTY_TEMP 400
+#define MAP_PROPERTY_EMPTY 500
+
+
+/*Manager*/
+extern PageManager pageManager;
