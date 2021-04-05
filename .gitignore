@@ -1,0 +1,12 @@
+
+EmptyProject/.vs/EmptyProject_2010/v16/
+
+EmptyProject/Debug/
+
+*.vcxproj
+
+*.vcproj
+
+*.filters
+
+*.user
