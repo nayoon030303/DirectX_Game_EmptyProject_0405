@@ -10,6 +10,10 @@
 
 PageManager pageManager;
 
+int map[WIDTH * HEIGHT];
+int binaryMap[WIDTH * HEIGHT];
+int mapData[WIDTH * HEIGHT];
+
 //--------------------------------------------------------------------------------------
 // Rejects any D3D9 devices that aren't acceptable to the app by returning false
 //--------------------------------------------------------------------------------------
