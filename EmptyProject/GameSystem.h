@@ -12,10 +12,11 @@ public:
 	void Update();
 	void FloodFill(int index);
 	void SetProperty();
+	void MakeBorder();
 	void Load();
 
 
-	Player player;
+	Player* player;
 
 	LPDIRECT3DTEXTURE9* backgroundTex;
 	LPDIRECT3DTEXTURE9* maskTex;

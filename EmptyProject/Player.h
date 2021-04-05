@@ -11,7 +11,7 @@ public:
 	virtual ~Player();
 	void Render();
 	void Update();
-	void playerMove();
+	void playerMove(int x, int y);
 
 	int px;
 	int py;
@@ -23,12 +23,12 @@ public:
 	bool press; 
 	bool startSetProperty;
 	D3DXVECTOR2 startPos;
-	enum  PlayerState
-	{
-		ON_EDGE,
-		VISITING
-	};
-	PlayerState playerState;
+	//enum  PlayerState
+	//{
+	//	ON_EDGE,
+	//	VISITING
+	//};
+	bool VISITING;
 	vector<D3DXVECTOR2> visitingPos;
 
 	LPDIRECT3DTEXTURE9* playerTex;

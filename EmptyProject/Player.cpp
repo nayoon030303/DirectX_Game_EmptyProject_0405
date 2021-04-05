@@ -7,8 +7,9 @@
 
 Player::Player()
 {
-
-	playerState = ON_EDGE;
+	px = 0;
+	py = 0;
+	VISITING = false;
 	startSetProperty = false;
 	speed = 5;
 	press = false;
@@ -59,11 +60,11 @@ void Player::Update()
 	}
 	else
 	{
-		if (playerState == VISITING)
+		press = false;
+		if (VISITING)
 		{
 			px = startPos.x;
 			py = startPos.y;
-			press = false;
 			for (int i = 0; i < visitingPos.size(); ++i)
 			{
 				int nx = visitingPos[i].x;
@@ -78,95 +79,73 @@ void Player::Update()
 	//right
 	if (((GetAsyncKeyState(VK_RIGHT) & 0x8000) != 0) && px <= WIDTH - 1)
 	{
-
-		for (int i = 1; i <= speed; ++i)
-		{
-			nx = px + 1;
-			ny = py;
-
-			if (nx<0 || nx>=WIDTH || ny < 0 || ny>=HEIGHT)
-				break;
-
-			playerMove();
-		}
+		playerMove(+1, 0);
+		
 	}
 	//left
 	else if (((GetAsyncKeyState(VK_LEFT) & 0x8000) != 0) && px >0)
 	{
-
-		for (int i = 1; i <= speed; ++i)
-		{
-			nx = px - 1; 
-			ny = py;
-
-			if (nx < 0 || nx >= WIDTH || ny < 0 || ny >= HEIGHT)
-				break;
-
-			playerMove();
-		}
+		playerMove(-1, 0);
 	}
 	//up
 	else if (((GetAsyncKeyState(VK_UP) & 0x8000) != 0))//&& py <0
 	{
-
-			for (int i = 1; i <= speed; ++i)
-			{
-				nx = px;
-				ny = py - 1;
-
-				if (nx < 0 || nx >= WIDTH || ny < 0 || ny >= HEIGHT)
-					break;
-				playerMove();
-		}
+		playerMove(0, -1);
 	}
 	//down
 	else if (((GetAsyncKeyState(VK_DOWN) & 0x8000) != 0) )
 	{
-
-		for (int i = 1; i <= speed; ++i)
-		{
-			nx = px;
-			ny = py + 1;
-			if (nx < 0 || nx >= WIDTH || ny < 0 || ny >= HEIGHT)
-				break;
-			playerMove();
-		}
-	};
+		playerMove(0, 1);
+	}
 }
 
-void Player::playerMove()
+void Player::playerMove(int x, int y)
 {
+	for (int i = 0; i < speed; ++i)
+	{
+		nx = px + x;
+		ny = py + y;
 
-	if (map[py * WIDTH + px] == MAP_PROPERTY_EDGE && map[ny * WIDTH + nx] == MAP_PROPERTY_EDGE)
-	{
-		px = nx;
-		py = ny;
-	}
-	if (map[py * WIDTH + px] == MAP_PROPERTY_EDGE && map[ny * WIDTH + nx] == MAP_PROPERTY_EMPTY && press)
-	{
-		startPos.x = px;
-		startPos.y = py;
+		if (nx < 0 || nx >= WIDTH || ny < 0 || ny >= HEIGHT)
+			break;
 
-		px = nx;
-		py = ny;
-		visitingPos.push_back(D3DXVECTOR2(px, py));
-		map[py * WIDTH + px] = MAP_PROPERTY_VISITING;
-		playerState = VISITING;
-	}
-	if (map[py * WIDTH + px] == MAP_PROPERTY_VISITING && map[ny * WIDTH + nx] == MAP_PROPERTY_EMPTY && press)
-	{
-		px = nx;
-		py = ny;
-		visitingPos.push_back(D3DXVECTOR2(px, py));
-		map[py * WIDTH + px] = MAP_PROPERTY_VISITING;
-	}
-	if (map[py * WIDTH + px] == MAP_PROPERTY_VISITING && map[ny * WIDTH + nx] == MAP_PROPERTY_EDGE && press)
-	{
-		px = nx;
-		py = ny;
-		startSetProperty = true;
-		playerState = ON_EDGE;
+		if (map[py * WIDTH + px] == MAP_PROPERTY_EDGE 
+			&& map[ny * WIDTH + nx] == MAP_PROPERTY_EDGE)
+		{
+			px = nx;
+			py = ny;
+		}
 
+		else if (map[py * WIDTH + px] == MAP_PROPERTY_EDGE 
+			&& map[ny * WIDTH + nx] == MAP_PROPERTY_EMPTY 
+			&& press)
+		{
+			startPos.x = px;
+			startPos.y = py;
+			px = nx;
+			py = ny;
+			//visitingPos.push_back(D3DXVECTOR2(px, py));
+			map[py * WIDTH + px] = MAP_PROPERTY_VISITING;
+			VISITING = true;
+		}
+
+		else if (map[py * WIDTH + px] == MAP_PROPERTY_VISITING && map[ny * WIDTH + nx] == MAP_PROPERTY_EMPTY && press)
+		{
+			visitingPos.push_back(D3DXVECTOR2(px, py));
+			px = nx;
+			py = ny;
+			map[py * WIDTH + px] = MAP_PROPERTY_VISITING;
+		}
+		else if (map[py * WIDTH + px] == MAP_PROPERTY_VISITING && map[ny * WIDTH + nx] == MAP_PROPERTY_EDGE && press)
+		{
+			press = false;
+			VISITING = false;
+			px = nx;
+			py = ny;
+			startSetProperty = true;
+
+
+		}
 	}
 
 }
