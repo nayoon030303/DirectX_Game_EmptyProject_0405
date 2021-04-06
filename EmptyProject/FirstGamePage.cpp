@@ -1,6 +1,7 @@
 #include "DXUT.h"
 #include "FirstGamePage.h"
 #include <atlconv.h>
+#include "global.h"
 
 FirstGamePage::FirstGamePage()
 {
@@ -23,10 +24,12 @@ FirstGamePage::FirstGamePage()
 		nullptr,
 		background
 	);
-
-	D3DXCreateFont(DXUTGetD3D9Device(), 30, 0, FW_BOLD, 1, FALSE, DEFAULT_CHARSET,
+	D3DXCreateFont(DXUTGetD3D9Device(), 45, 0, FW_BOLD, 1, FALSE, DEFAULT_CHARSET,
 		OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE,
 		L"Arial", &font);
+	/*D3DXCreateFont(DXUTGetD3D9Device(), 30, 0, FW_BOLD, 1, FALSE, DEFAULT_CHARSET,
+		OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE,
+		L"Arial", &font);*/
 }
 
 FirstGamePage::~FirstGamePage()
@@ -48,7 +51,7 @@ void FirstGamePage::Render()
 	sprite->End();
 	gameSystem.Render();
 
-	char text[] = "firstGaem";
+	/*char text[] = "firstGaem";
 	float score = 1234.567;
 	char cscore[256];
 	sprintf(cscore, "%.2f", score);
@@ -69,8 +72,16 @@ void FirstGamePage::Render()
 	rc.top = 200;
 	rc.right = 300;
 	rc.bottom = 500;
-	font->DrawText(NULL, w1, -1, &rc, DT_NOCLIP, D3DXCOLOR(1.0f,1.0f,1.0f,1.0f));
+	font->DrawText(NULL, w1, -1, &rc, DT_NOCLIP, D3DXCOLOR(1.0f,1.0f,1.0f,1.0f));*/
 
+	int playerScore = 14444.2;
+	char cscore[256];
+	sprintf(cscore, "%d", playerScore);
 
+	USES_CONVERSION;
 
+	WCHAR* w = A2W(cscore);
+
+	RECT rc = { START_X ,0,300,200 };
+	font->DrawText(NULL, w, -1, &rc, DT_NOCLIP, D3DXCOLOR(1.0f,1.0f,1.0f,1.0f));
 }

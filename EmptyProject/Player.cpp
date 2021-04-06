@@ -1,6 +1,9 @@
 #include "DXUT.h"
 #include "Player.h"
 #include "global.h"
+#include <random>
+
+using namespace std;
 
 #define PLAYER_WH 8
 
@@ -9,6 +12,7 @@ Player::Player()
 {
 	px = 0;
 	py = 0;
+	setStartPos();
 	VISITING = false;
 	startSetProperty = false;
 	speed = 5;
@@ -97,6 +101,15 @@ void Player::Update()
 	{
 		playerMove(0, 1);
 	}
+}
+void Player::setStartPos()
+{
+	random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<int>dis1(0, WIDTH);
+	std::uniform_int_distribution<int>dis2(0, HEIGHT);
+	px = dis1(gen);
+	py = dis2(gen);
 }
 
 void Player::playerMove(int x, int y)

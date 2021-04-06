@@ -12,7 +12,7 @@ public:
 	void Render();
 	void Update();
 	void playerMove(int x, int y);
-
+	void setStartPos();
 	int px;
 	int py;
 	int nx;
