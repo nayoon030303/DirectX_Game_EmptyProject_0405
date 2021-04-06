@@ -13,6 +13,7 @@ public:
 	void Update() override;
 
 
+	ID3DXFont* font;
 	GameSystem gameSystem;
 	LPDIRECT3DTEXTURE9* background;
 	LPD3DXSPRITE sprite;
