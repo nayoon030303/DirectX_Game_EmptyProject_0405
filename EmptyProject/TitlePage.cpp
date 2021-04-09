@@ -14,7 +14,7 @@ TitlePage::TitlePage()
 	titleTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/title.png",
+		"img/title.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,
@@ -32,7 +32,7 @@ TitlePage::TitlePage()
 	gameStartTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/gamestart.png",
+		"img/gamestart.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,
@@ -50,7 +50,7 @@ TitlePage::TitlePage()
 	gameIntroductionTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/gameintroduction.png",
+		"img/gameintroduction.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,
@@ -68,7 +68,7 @@ TitlePage::TitlePage()
 	rankingTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/ranking.png",
+		"img/ranking.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,
@@ -86,7 +86,7 @@ TitlePage::TitlePage()
 	creditTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/credit.png",
+		"img/credit.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,
@@ -104,7 +104,7 @@ TitlePage::TitlePage()
 	exitTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/exit.png",
+		"img/exit.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,

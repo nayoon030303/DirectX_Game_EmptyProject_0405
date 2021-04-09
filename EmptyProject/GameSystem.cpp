@@ -188,7 +188,7 @@ void GameSystem::Load()
 	backgroundTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/background.png",
+		"img/background.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,
@@ -207,7 +207,7 @@ void GameSystem::Load()
 	maskTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/mask.png",
+		"img/mask.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,
@@ -225,7 +225,7 @@ void GameSystem::Load()
 	dotTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/dot.png",
+		"img/dot.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,

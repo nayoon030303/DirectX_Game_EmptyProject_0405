@@ -22,7 +22,7 @@ Player::Player()
 	playerTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
 		DXUTGetD3D9Device(),
-		"source/img/player.png",
+		"img/player.png",
 		D3DX_DEFAULT_NONPOW2,
 		D3DX_DEFAULT_NONPOW2,
 		0,
